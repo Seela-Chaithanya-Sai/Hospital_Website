@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #b7c1ce;
+                color:#333;
+            }
+
+             .navbar {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background-color: white;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            transition: 0.3s;
+        }
+
+        .brand-logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+
+        .logo-icon {
+            width: 120px;
+            height: 50px;
+            background: linear-gradient(rgba(blue), rgba(teal));
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 2px solid darkblue;
+        }
+
+        .brand-text h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color:blue;
+            line-height: 1;
+        }
+
+        .brand-text span {
+            font-size: 0.75rem;
+            color: gray;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 800;
+            font-size: 20px;
+            color: navy;
+            transition: color 0.2s ease;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color:teal;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: teal;
+            border-radius: 2px;
+        }
+
+        .btn-nav {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 2px solid darkblue;
+        }
+
+        .btn-nav:hover {
+            background-color: teal;
+            transform: translateY(-2px);
+            color: black;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 32px;
+            height: 24px;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: navy;
+            border-radius: 3px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: auto;
+                background-color: #fff;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 123, 255, 0.1);
+            }
+
+            h1 {
+                color: #007bff;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            p {
+                text-align: center;
+                margin-bottom: 30px;
+                color:#666;
+            }
+
+            .form-row {
+                display: flex;
+                gap:  20px;
+
+            }
+
+            .form-group {
+                flex: 1;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            label {
+                font-weight: 600;
+                margin-bottom: 8px ;
+                color: #444;
+            }
+
+            input,
+            select,
+            textarea {
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 16px;
+                outline: none;
+                transition: 0.3s;
+            }
+
+            input:focus,
+            select:focus,
+            textarea:focus {
+                border-color: #007bff;
+            }
+
+            .btn-submit {
+                width:100%;
+                padding: 14px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .btn-submit:hover {
+                background-color: #0056b3;
+            }
+
+            .hospital-info {
+                margin-top: 30px;;
+                text-align: center;
+                background-color: #e7f1ff;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            
+
+            @media(max-width: 768px) {
+                .navbar {
+                    padding: 18px 20px;
+                }
+
+                .nav-menu {
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    left: 0;
+                    flex-direction: column;
+                    gap: 0;
+                    background-color: white;
+                    padding: 10px 0;
+                    display: none;
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+                }
+
+                .nav-menu.open {
+                    display: flex;
+                }
+
+                .nav-menu li {
+                    width: 100%;
+                }
+
+                .nav-link {
+                    display: block;
+                    width: 100%;
+                    padding: 14px 24px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .nav-link.btn-nav {
+                    margin: 12px 24px 0;
+                    text-align: center;
+                }
+
+                .hamburger {
+                    display: flex;
+                }
+
+                .contact-section {
+                    padding: 60px 20px;
+                }
+
+                .container {
+                    padding: 30px 20px;
+                }
+
+                .form-row {
+                    flex-direction: column;
+                    gap: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar">
+          
+               <img src="hospital.png" alt="Logo" class="logo-img"> 
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="departments.html" class="nav-link">Departments</a></li>
+                <li><a href="doctors.html" class="nav-link">Doctor's Directory</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="appointment.html" class="nav-link btn-nav">Book Appointment</a></li>
+            </ul>
+
+            <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+
+        <section class="contact-section">
+            <div class="container">
+                <h1>Contact</h1>
+                <p>Have a question or need an appointment? We are here 24/7 to help you.</p>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name*</label>
+                            <input type="text" id="name" name="name" placeholder="enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Number*</label>
+                            <input type="number" id="phone" name="phone" placeholder="enter your number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" placeholder="enter your email" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" name="department">
+                                <option value="">Select a department</option>
+
+                                <option value="General">General Medicine</option>
+
+                                <option value="cardiology">Cardiology</option>
+
+                                <option value="Pediatrics">Pediatrics</option>
+
+                                <option value="Orthopedics">Orthopedics</option>
+
+                                <option value="Neurology">Neurology</option>
+
+                                <option value="Emergency">Emergency</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="appointment">Appointment Date</label>
+                            <input type="date" id="appointment" name="appointment">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" rows="5" placeholder="describe your concern" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+
+                <div class="hospital-info">
+                    <h3>Emergency Contact</h3><br>
+                    <p>&#128222;   123456789  |  &#9993;   help@Medivahospital    | &#128205;   nagpur, Maharastra</p>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                alert('Thank you ' + name + '! Your message has been sent. Our team will contact you soon.');
+
+                this.reset();
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                navMenu.classList.toggle('open');
+                this.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (navMenu.classList.contains('open')) {
+                        navMenu.classList.remove('open');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>
