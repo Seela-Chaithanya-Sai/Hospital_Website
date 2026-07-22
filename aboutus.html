@@ -1,0 +1,703 @@
+<html>
+    <head>
+        <title>Hosipital_website</title>
+        <style>
+            header{
+    position:sticky;
+    top:0;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    padding:15px 3%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-decoration: none;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration: none;
+}
+
+.logo img{
+    width:120px;
+    height:50px;
+}
+
+.logo h2{
+    color:#0077b6;
+    font-size:28px;
+    font-weight:700;
+}
+.nav-menu{
+    display: flex;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+    text-decoration: none;
+}
+
+.nav-links li a{
+    color:#333;
+    font-size:15px;
+    font-weight:500;
+    transition:.3s;
+    text-decoration: none;
+}
+
+.nav-links li a:hover{
+    color:#0077b6;
+}
+ .Appointment-btn{
+    background: #16709A;
+    color:#000 !important;
+    padding:10px 22px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+.Appointment-btn:hover{
+    background:#16709A;
+}
+  .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 32px;
+            height: 24px;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: navy;
+            border-radius: 3px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+         /* mobile nav behavior */
+         @media(max-width: 768px) {
+                .navbar {
+                    padding: 18px 20px;
+                }
+
+                .nav-menu {
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    left: 0;
+                    flex-direction: column;
+                    gap: 0;
+                    background-color: white;
+                    padding: 10px 0;
+                    display: none;
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+                }
+
+                .nav-menu.open {
+                    display: flex;
+                }
+
+                .nav-menu li {
+                    width: 100%;
+                }
+
+                .nav-link {
+                    display: block;
+                    width: 100%;
+                    padding: 14px 24px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .nav-link.btn-nav {
+                    margin: 12px 24px 0;
+                    text-align: center;
+                }
+
+                .hamburger {
+                    display: flex;
+                }
+
+                .contact-section {
+                    padding: 60px 20px;
+                }
+
+                .container {
+                    padding: 30px 20px;
+                }
+
+                .form-row {
+                    flex-direction: column;
+                    gap: 0;
+                }
+            }
+            /*...........................Tablet..................*/
+@media(max-width:600px){
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        padding: 15px 20px;
+    }
+    nav{
+        width: 100%;
+
+    }
+    nav ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    nav ul li{
+        margin: 0;
+
+    }
+    nav ul li a{
+        font-size: 15px;
+    }
+}
+/*laptop*/
+@media(max-width:1024px){
+    .navbar{
+        width: 95%;
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+    nav ul li {
+        margin: 0;
+    }
+
+}
+
+            
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+                
+                line-height: 1.6;
+            }
+            .hero-banner {
+            background: #c0c7d1;
+            padding: 20px 16px 0;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            max-height: 460px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+        }
+
+        .hero-content {
+            background: #c0c7d1;
+            padding: 20px 16px 36px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            color: blue;
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+        }
+
+        .hero-content p {
+            margin: 0 auto 18px;
+            max-width: 700px;
+            line-height: 1.6;
+            color: #1b1a1a;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .class {
+            background-color: rgb(197, 152, 93);
+            text-align: center;
+            padding: 40px;
+
+
+        }
+
+        .btn-Explore {
+            display: inline-block;
+            color: orange;
+            color: black;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(201, 228, 228);
+        }
+
+        .btn-Explore:hover {
+            color: #0d47a1;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-contactus {
+            display: inline-block;
+            background-color: blue;
+            color: black;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+
+        .btn-contactus:hover {
+            background-color: pink;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .heading {
+            text-align: center;
+            color: blue;
+            margin-bottom: 50px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .better {
+            background: pink;
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px blueviolet;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+
+        .better .icon {
+            margin-bottom: 20px;
+
+        }
+
+        .better h3 {
+            margin-bottom: 15px;
+            transition: color 0.35s ease;
+
+        }
+
+        .better p {
+            transition: color 0.35s ease;
+            line-height: 1.6;
+        }
+
+        .better:hover {
+            background: green;
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25 px yellow;
+        }
+
+        .better:hover h3,
+        .better:hover p {
+            color: aquamarine;
+        }
+
+
+
+
+            .container{
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 3rem 1.5rem;
+            }
+            .eyebrow{
+                color: blue;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+            h1{
+                margin-bottom: 16px;
+                color: blue;
+            }
+            
+            .about-row{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+                align-items: center;
+                margin-bottom: 3rem;
+            }
+            .mission {
+                color: black;
+            }
+            .intro-image img{
+                width: 100%;
+                height: 260px;
+                border-radius: 12px;
+                display:block;
+                object-fit: cover;
+            }
+                @media(max-width:700px){
+                    .about-row{
+                        grid-template-columns: 1fr;
+                    }
+                }
+            
+            
+            .stats-grid{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 16px;
+                margin-bottom: 3rem;
+
+            }
+            .stat-card{
+                background-color: rgb(241, 225, 230);
+                border-radius: 8px;
+                padding: 1.25rem;
+                border: 1px solid blue;
+            }
+            .stat-label{
+                color: rgb(22, 22, 22);
+                margin-bottom: 6px;
+            }
+            .stat-value{
+                color: black;
+            }
+            .values-heading{
+                margin-bottom: 1.25rem;
+                color: blue;
+            }
+            .values-grid{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 16px;
+            }
+            .value-card{
+                background-color: rgb(181, 226, 226);
+                border: 1px solid black;
+                padding: 1.5rem;
+            }
+            .value-icon{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 12px;
+            }
+            .value-title{
+                margin-bottom: 6px;
+                color: blueviolet;
+            }
+            .value-desc{
+                color: black;
+            }
+            @media(max-width:600px){
+                h1{
+                    font-size: 2px;
+
+                }
+                .container{
+                    padding: 2rem 1rem;
+                }
+            }
+             .status-banner {
+            background: rgb(73, 45, 197);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .point h2 {
+            margin: 0 0 5px 0;
+
+        }
+
+        .point p {
+            margin: 0;
+
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="image2.png" alt="logo">
+
+
+
+</div>
+<button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="nav-menu" id="navMenu">
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="aboutus.html">About Us</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="departments.html">Departments</a></li>
+
+<li><a href="doctors.html">Doctor's Directory</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="appointment.html" class="Appointment-btn"> Book Appointment</a></li>
+</ul>
+</div>
+
+
+
+</nav>
+
+</header>
+        <div class="hero-banner">
+        <img src="hospital.webp" alt="College campus" />
+    </div>
+    <div class="hero-content">
+        <h1>Welcome to Mediva Hospital</h1>
+        <p>Where Compassionate care meets modern medicine.</p>
+        <div class="hero-buttons">
+            <a href="services.html" class="btn-Explore">Explore Services</a>
+            <a href="contact.html" class="btn-contactus">Contact Us</a>
+        </div>
+    </div>
+    <br>
+       
+        <center><h1>About us</h1></center>
+        <div class="container">
+            <p class="eyebrow"></p>
+            <h1>Caring for our community since 1998</h1>
+            <div class="about-row">
+                <p class="mission">
+                City General Hospital is afull-service medical center commited to providing 
+                compassionate, high-quality care patient who walks through our doors.
+                From emergency response to long-term treatment, our team is here for our
+                community around the clock.
+            Our modern facility is equipped with advanced technology and staffed by a dedicated team , ensuring every patient safe and reliable care.</p>
+                
+                <div class="intro-image">
+                    <img src="doct.png" alt="image">
+                </div>
+            </div>
+            <h1 class="heading">Vision & Mission</h1>
+    <div class="box-container">
+        <div class="better">
+            <div class="icon"></div>
+            <h3>Our Mission</h3>
+            <p>To Provide compassionate, high-quality and accessible healthcare to every patient we serve. We are commited to combing
+                advanced medical technology with caring,patient-first approach- trating not just illness,but the people who trust us with their well being
+            </p>
+        </div>
+        <div class="better">
+            <div class="icon"></div>
+            <h3>Our vission</h3>
+            <p>To be the kost trusted healthcare institution in our community, recognized for clinical excellence
+                innovation, and a genuine commitment to improving the health and quality of life of every person we touch
+            </p>
+        </div>
+    </div>
+<br>
+<br>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-label">Years of services</p>
+                    <p class="stat-value">27</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Doctors on staff</p>
+                    <p class="stat-value">120+</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Patient bed</p>
+                    <p class="stat-value">340</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">patients served yearly</p>
+                    <p class="stat-value">85K</p>
+                </div>
+                
+                
+            </div>
+            <h2 class="values-heading">What guides us</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">&#10084;</div>
+                    <p class="value-title">Compassionate care</p>
+                    <p class="value-desc">Every patient is trated with diginity, empathy and respect</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#9877;</div>
+                    <p class="value-title">Clinical excellence</p>
+                    <p class="value-desc">Advanced technology paired with experienced medical teams.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#128101;</div>
+                    <p class="value-title">Community focus</p>
+                    <p class="value-desc">outteach programs and accessible healthcare for all.</p>
+                </div>
+                
+            </div>
+        </div>
+      <div class="status-banner">
+        <div class="point">
+            <h2>27+</h2>
+            <p>Years of services</p>
+        </div>
+        <div class="point">
+            <h2>120+</h2>
+            <p>Doctors staff</p>
+        </div>
+
+        <div class="point">
+            <h2>300+</h2>
+            <p>patients bed</p>
+        </div>
+
+        <div class="point">
+            <h2>85+</h2>
+            <p>Patients served yearly </p>
+        </div>
+
+
+
+
+
+
+    </div>
+    <footer>
+        &copy; 2026 Mediva Hospital ,All Rights Reserived
+    </footer>
+    <script>
+        const btn = document.querySelector('.hamburger');
+        const nav = document.getElementById('navMenu');
+        const backdrop = document.createElement('div');
+        backdrop.className = 'menu-backdrop';
+        document.body.appendChild(backdrop);
+
+        if (btn && nav) {
+            function closeMenu() {
+                nav.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                backdrop.classList.remove('visible');
+                document.body.classList.remove('menu-open');
+            }
+
+            function openMenu() {
+                nav.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                backdrop.classList.add('visible');
+                document.body.classList.add('menu-open');
+            }
+
+            btn.addEventListener('click', () => {
+                const opened = nav.classList.contains('open');
+                if (opened) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+            backdrop.addEventListener('click', closeMenu);
+            nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+        }
+    </script>
+
+    
+    </body>
+</html>
