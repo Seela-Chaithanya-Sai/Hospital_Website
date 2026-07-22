@@ -1,0 +1,196 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MEDIVA'S Hospital | Services</title>
+        <link rel="stylesheet" href="sercss.css">
+
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <div class="container navbar">
+
+                <div class="logo">
+
+                    <a href="index,html"> <img src="serlogo.png" alt="logo"> </a>
+                </div>
+
+                <div class="menu-btn" onclick="toggleMenu()">
+                    ☰
+                </div>
+
+                <nav id="menu">
+
+                    <ul>
+
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="departments.html">Departments</a></li>
+                        <li><a href="doctors.html">Doctor's Directory</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="appointment.html" class="btn1">Book Appointment</a></li>
+
+                    </ul>
+
+                </nav>
+
+            </div>
+
+        </header>
+
+        <section class="hero">
+
+            <h1>Comprehensive Healthcare Services</h1>
+
+            <p>
+                Providing world-class medical care with experienced doctors,
+                advanced technology, and compassionate treatment for every patient.
+            </p>
+
+        </section>
+
+        <section>
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Our Medical Services
+                </h2>
+
+                <div class="services-grid">
+
+                    <div class="card">
+                        <div class="icon">❤️</div>
+                        <h3>Cardiology</h3>
+                        <p>
+                            Diagnosis and treatment for heart diseases using modern technology and experienced specialists.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">🧠</div>
+                        <h3>Neurology</h3>
+                        <p>
+                            Advanced neurological care for brain, spine, and nervous system disorders.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">🦴</div>
+                        <h3>Orthopedics</h3>
+                        <p>
+                            Complete bone, joint, and sports injury treatments with rehabilitation services.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">👶</div>
+                        <h3>Pediatrics</h3>
+                        <p>
+                            Comprehensive healthcare services for infants, children, and adolescents.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">🩺</div>
+                        <h3>General Medicine</h3>
+                        <p>
+                            Routine checkups, preventive healthcare, and treatment for common illnesses.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">🚑</div>
+                        <h3>Emergency Care</h3>
+                        <p>
+                            24/7 emergency department with rapid response medical professionals.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <div class="container why">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTlXuU3U3aMEZ_AQ0IbKnu1MAbwK_QWrPda-3TMO3viA&s=10"
+                    alt="Hospital">
+
+                <div>
+
+                    <h2 style="color:#0b6fb8;margin-bottom:20px;">
+                        Why Choose Our Hospital?
+                    </h2>
+
+                    <ul>
+
+                        <li>✔ Experienced Medical Specialists</li>
+
+                        <li>✔ Modern Diagnostic Equipment</li>
+
+                        <li>✔ 24×7 Emergency Services</li>
+
+                        <li>✔ Advanced Operation Theatres</li>
+
+                        <li>✔ Patient-Centered Healthcare</li>
+
+                        <li>✔ Affordable Treatment Plans</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="cta">
+
+            <h2>Need Immediate Medical Assistance?</h2>
+
+            <p>
+                Our emergency department is available 24 hours a day,
+                7 days a week.
+            </p>
+
+            <a href="tel:+911234567890">
+                Call Emergency
+            </a>
+
+        </section>
+
+        <footer>
+
+            <p>
+                © 2026 MEDIVA'S Hospital. All Rights Reserved.
+            </p>
+
+        </footer>
+
+        <script>
+
+            function toggleMenu() {
+                document.getElementById("menu").classList.toggle("active");
+            }
+
+            // Close menu after clicking a link on mobile
+                document.querySelectorAll("#menu a").forEach(link => {
+                link.addEventListener("click", () => {
+                    document.getElementById("menu").classList.remove("active");
+                });
+            });
+
+        </script>
+
+    </body>
+
+</html>
