@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediva Hospital | Healing Hands, Caring Hearts</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES & RESET */
+        :root {
+            --primary-blue: #0b4f6c;
+            --secondary-teal: #01baef;
+            --accent-cyan: #20bf6b;
+            --dark-navy: #0f172a;
+            --slate-gray: #475569;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 20px 30px -10px rgba(11, 79, 108, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* HEADER & TOPBAR */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            padding: 8px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar-info div i {
+            color: var(--secondary-teal);
+            margin-right: 6px;
+        }
+
+        .emergency-badge {
+            background: linear-gradient(135deg, #e11d48, #be123c);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.85; }
+            100% { opacity: 1; }
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: var(--white);
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .brand-logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+
+        .logo-icon {
+            width: 120px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .brand-text h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .brand-text span {
+            font-size: 0.75rem;
+            color: var(--slate-gray);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-brand .brand-text h1 {
+            color: var(--white);
+        }
+
+        .footer-brand .brand-text span {
+            color: #94a3b8;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark-navy);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-teal);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-teal);
+            border-radius: 2px;
+        }
+
+        .btn-nav {
+            background-color: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-nav:hover {
+            background-color: var(--secondary-teal);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark-navy);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            padding: 90px 8% 120px;
+            background: linear-gradient(135deg, rgba(248,250,252,0.95) 0%, rgba(224,242,254,0.6) 100%), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 span {
+            color: var(--secondary-teal);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--slate-gray);
+            margin-bottom: 35px;
+            max-width: 580px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(1, 186, 239, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark-navy);
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-bg);
+            border-color: var(--slate-gray);
+        }
+
+        /* QUICK STATS / HIGHLIGHT CARDS */
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid #f1f5f9;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--secondary-teal);
+            margin-bottom: 12px;
+        }
+
+        .stat-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .stat-card p {
+            font-size: 0.9rem;
+            color: var(--slate-gray);
+        }
+
+        /* HOMEPAGE PREVIEW SECTIONS */
+        .preview-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-header {
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h3 {
+            color: var(--secondary-teal);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 35px 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+            text-align: left;
+        }
+
+        .feature-box:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(1, 186, 239, 0.1);
+            color: var(--secondary-teal);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.2rem;
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 0.95rem;
+            color: var(--slate-gray);
+            line-height: 1.5;
+        }
+
+        .center-btn {
+            margin-top: 20px;
+        }
+
+        /* EMERGENCY BANNER */
+        .emergency-banner {
+            margin: 0 8% 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            padding: 40px;
+            border-radius: var(--radius);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .emergency-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .emergency-content p {
+            color: #cbd5e1;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            padding: 60px 8% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 50px;
+                text-align: center;
+            }
+            .hero-text p {
+                margin: 0 auto 35px;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .emergency-banner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 24px 8% 32px;
+                gap: 18px;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-10px);
+                opacity: 0;
+                pointer-events: none;
+                border-radius: 0 0 18px 18px;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .nav-link {
+                width: 100%;
+                display: block;
+                padding: 12px 0;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+            }
+            .top-bar-info {
+                display: none;
+            }
+            .hero {
+                padding: 60px 6% 80px;
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text h2 {
+                font-size: 2.4rem;
+            }
+            .hero-text p {
+                max-width: 100%;
+                margin: 0 auto 30px;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+            }
+            .hero-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-highlights {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .stat-card {
+                padding: 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & TOPBAR -->
+    <header>
+
+        <nav class="navbar">
+            <a href="index.html" class="brand-logo">
+               <img src="mediva.webp" alt="Logo" class="logo-img"> 
+            </a>
+
+            <!-- NAVIGATION LINKS TO SEPARATE PAGES -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="departments.html" class="nav-link">Departments</a></li>
+                <li><a href="doctors.html" class="nav-link">Doctor's Directory</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="appointment.html" class="nav-link btn-nav">Book Appointment</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HOMEPAGE HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Compassionate Care, <span>Advanced Medicine.</span></h2>
+            <p>Empowering healthier lives with world-class medical specialists, cutting-edge diagnostic technology, and 24/7 emergency care tailored to you.</p>
+            <div class="hero-cta">
+                <a href="appointment.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+                <a href="doctors.html" class="btn btn-secondary">Find a Doctor</a>
+            </div>
+        </div>
+
+        <div class="hero-highlights">
+            <div class="stat-card">
+                <i class="fas fa-user-md"></i>
+                <h3>150+</h3>
+                <p>Expert Specialist Doctors</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-procedures"></i>
+                <h3>500+</h3>
+                <p>Advanced Patient Beds</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-award"></i>
+                <h3>25+</h3>
+                <p>Years of Medical Excellence</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3>24/7</h3>
+                <p>Emergency & Trauma Response</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES PREVIEW SECTION -->
+    <section class="preview-section">
+        <div class="section-header">
+            <h3>Specialized Care</h3>
+            <h2>Our Core Medical Services</h2>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4>Cardiology</h4>
+                <p>Comprehensive heart health diagnostics, non-invasive procedures, and advanced cardiac surgery.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <h4>Neurology</h4>
+                <p>Expert neurological evaluation and surgical treatment for brain and nervous system disorders.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fas fa-baby"></i></div>
+                <h4>Pediatrics</h4>
+                <p>Dedicated medical care, wellness checkups, and specialized treatments for infants and children.</p>
+            </div>
+        </div>
+
+        <div class="center-btn">
+            <a href="services.html" class="btn btn-secondary">Explore All Services <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <div class="emergency-banner">
+        <div class="emergency-content">
+            <h3>Need Immediate Medical Attention?</h3>
+            <p>Our emergency response teams are available round the clock with intensive trauma care capabilities.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone"></i> Contact Emergency Unit</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <div class="logo-icon">
+                        <img src="mediva.webp" alt="Mediva Hospital Logo" class="logo-img">
+                    </div>
+                    <div class="brand-text">
+                        <h1>Mediva Hospital</h1>
+                        <span>Healing Hands, Caring Hearts</span>
+                    </div>
+                </div>
+                <p>Setting standards in high-quality healthcare, clinical precision, and patient comfort since 2001.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="aboutus.html">About Our Hospital</a></li>
+                    <li><a href="doctors.html">Find a Specialist</a></li>
+                    <li><a href="departments.html">Clinical Departments</a></li>
+                    <li><a href="appointment.html">Schedule Visit</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Medical Services</h4>
+                <ul>
+                    <li><a href="services.html">24/7 Emergency Care</a></li>
+                    <li><a href="services.html">Diagnostic Imaging</a></li>
+                    <li><a href="services.html">Outpatient Clinics</a></li>
+                    <li><a href="services.html">Surgical Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="contact.html">Hospital Location Map</a></li>
+                    <li><a href="contact.html">General Inquiries</a></li>
+                    <li><a href="contact.html">International Patients</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mediva Hospital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Responsive Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
